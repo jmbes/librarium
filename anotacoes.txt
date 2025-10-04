@@ -1,4 +1,3 @@
-
 1 - Caminho do repositorio no github
 https://github.com/jmbes/librarium.git
 
@@ -12,4 +11,12 @@ git add .
 git commit -m "comentario"
 
 4 - Define a branch do repositorio
-git branch - M main
+git branch -M main
+
+5 - Define a UTL do repositorio no github
+git remote add origin https://github.com/jmbes/librarium.git
+
+6 - Envia o conteudo para o repositorio do github
+git push -u origin main
+
+teste
