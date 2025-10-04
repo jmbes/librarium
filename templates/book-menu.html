@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}Gerenciar Livros{% endblock %}
+
+{% block content %}
+<div class="row d-flex justify-content-center">
+    <div class="col-sm-8 col-lg-6 card p-5 my-5">
+        <h3 class="card-title mb-4">Gerenciar Livros</h3>
+        <div class="d-grid gap-3">
+            <a href="{{ url_for('book_management.register_book') }}" class="btn btn-primary btn-lg">Cadastrar Novo Livro</a>
+            <a href="{{ url_for('book_management.list_book') }}" class="btn btn-secondary btn-lg">Exibir Livros</a>
+            <a href="{{ url_for('user_authentication.dashboard') }}" class="btn btn-outline-dark btn-lg">Voltar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

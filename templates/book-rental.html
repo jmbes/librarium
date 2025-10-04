@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Juliano Barbosa">
+    <meta name="description" content="Software de Gestão de Biblioteca">
+
+    <title>Empréstimo de Livros</title>
+
+    <!--- CSS do Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #FAFAFA;
+        }
+        .navbar {
+            background-color: #1976D2 !important;
+        }
+        .navbar .nav-link,
+        .navbar .navbar-brand {
+            color: #fff !important;
+        }
+        .navbar .nav-link.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h3.card-title {
+            color: #1976D2;
+        }
+        .btn-primary {
+            background-color: #1976D2;
+            border-color: #1976D2;
+        }
+        .btn-primary:hover {
+            background-color: #64B5F6;
+            border-color: #64B5F6;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Menu de navegação-->
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"><b>Librarium</b></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarScroll">
+                            <ul class="navbar-nav me-auto my-2 navbar-nav-scroll">
+                                <li class="nav-item"><a class="nav-link" href="#">Livros</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Usuários</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#">Empréstimo</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Devolução</a></li>
+                            </ul>
+                            <form class="d-flex" role="search">
+                                <button class="btn btn-outline-light" type="submit">Sair</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!--Conteúdo da página da web-->
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-11 col-lg-6 card p-5 my-5">
+            <h3 class="card-title mb-3">Registrar Empréstimo</h3>
+
+            <form>
+                <!-- Seleção do Leitor -->
+                <div class="form-group mb-3">
+                    <label for="leitor" class="form-label">Leitor</label>
+                    <select class="form-control" id="leitor" name="leitor">
+                        <option value="">Selecione um leitor</option>
+                        <!-- Os leitores cadastrados seriam adicionados aqui dinamicamente -->
+                        <option value="leitor1">João da Silva</option>
+                        <option value="leitor2">Maria Souza</option>
+                    </select>
+                </div>
+
+                <!-- Seleção do Livro -->
+                <div class="form-group mb-3">
+                    <label for="livro" class="form-label">Livro</label>
+                    <select class="form-control" id="livro" name="livro">
+                        <option value="">Selecione um livro</option>
+                        <!-- Os livros disponíveis seriam adicionados aqui dinamicamente -->
+                        <option value="livro1">Aprendendo Python</option>
+                        <option value="livro2">História do Brasil</option>
+                    </select>
+                </div>
+
+                <!-- Data de Empréstimo -->
+                <div class="form-group mb-3">
+                    <label for="data_emprestimo" class="form-label">Data de Empréstimo</label>
+                    <input type="date" class="form-control" id="data_emprestimo" name="data_emprestimo">
+                </div>
+
+                <!-- Data de Devolução Prevista -->
+                <div class="form-group mb-3">
+                    <label for="data_devolucao" class="form-label">Data de Devolução Prevista</label>
+                    <input type="date" class="form-control" id="data_devolucao" name="data_devolucao">
+                </div>
+
+                <!-- Botão -->
+                <button type="submit" class="btn btn-primary">Confirmar Empréstimo</button>
+            </form>
+        </div>
+    </div>
+
+    <!--- JavaScript do Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

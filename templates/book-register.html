@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ 'Editar Livro' if livro else 'Cadastrar Livro' }}{% endblock %}
+
+{% block content %}
+
+<!-- Mensagens do Flask -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<div class="row d-flex justify-content-center">
+    <div class="col-sm-11 col-lg-6 card p-5 my-5">
+        <h3 class="card-title mb-3">{{ 'Editar Livro' if livro else 'Cadastrar Novo Livro' }}</h3>
+        
+        <form method="POST" action="{% if livro %}{{ url_for('book_management.edit_book', id=livro.id) }}{% else %}{{ url_for('book_management.register_book') }}{% endif %}">
+            
+            <!-- ISBN -->
+            <div class="form-group mb-3">
+                <label for="isbn" class="form-label">ISBN</label>
+                <input type="text" class="form-control" id="isbn" name="isbn" value="{{ livro.isbn if livro else request.form.isbn }}" {% if livro %}readonly{% endif %}>
+            </div>
+
+            <!-- Título -->
+            <div class="form-group mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" value="{{ livro.titulo if livro else request.form.titulo }}">
+            </div>
+
+            <!-- Autor -->
+            <div class="form-group mb-3">
+                <label for="autor" class="form-label">Autor</label>
+                <input type="text" class="form-control" id="autor" name="autor" value="{{ livro.autor if livro else request.form.autor }}">
+            </div>
+
+            <!-- Editora -->
+            <div class="form-group mb-3">
+                <label for="editora" class="form-label">Editora</label>
+                <input type="text" class="form-control" id="editora" name="editora" value="{{ livro.editora if livro else request.form.editora }}">
+            </div>
+
+            <!-- Edição -->
+            <div class="form-group mb-3">
+                <label for="edicao" class="form-label">Edição</label>
+                <input type="text" class="form-control" id="edicao" name="edicao" value="{{ livro.edicao if livro else request.form.edicao }}">
+            </div>
+
+            <!-- Volume -->
+            <div class="form-group mb-3">
+                <label for="volume" class="form-label">Volume</label>
+                <input type="text" class="form-control" id="volume" name="volume" value="{{ livro.volume if livro else request.form.volume }}">
+            </div>
+
+            <!-- Gênero -->
+            <div class="form-group mb-3">
+                <label for="genero" class="form-label">Gênero</label>
+                <input type="text" class="form-control" id="genero" name="genero" value="{{ livro.genero if livro else request.form.genero }}">
+            </div>
+
+            <!-- Número de Páginas -->
+            <div class="form-group mb-3">
+                <label for="num_paginas" class="form-label">Número de Páginas</label>
+                <input type="number" class="form-control" id="num_paginas" name="num_paginas" value="{{ livro.numero_de_paginas if livro else request.form.num_paginas }}">
+            </div>
+
+            <!-- Ano de Publicação -->
+            <div class="form-group mb-3">
+                <label for="ano_publicacao" class="form-label">Ano de Publicação</label>
+                <input type="number" class="form-control" id="ano_publicacao" name="ano_publicacao" value="{{ livro.ano_publicacao if livro else request.form.ano_publicacao }}">
+            </div>
+
+            <!-- Quantidade de Exemplares -->
+            <div class="form-group mb-3">
+                <label for="qtd_exemplares" class="form-label">Quantidade de Exemplares</label>
+                <input type="number" class="form-control" id="qtd_exemplares" name="qtd_exemplares" value="{{ livro.exemplares if livro else request.form.qtd_exemplares }}">
+            </div>
+
+            <!-- Botões -->
+            <div class="d-flex justify-content-between">
+                <a href="{{ url_for('book_management.manage_books') }}" class="btn btn-secondary">
+                    &larr; Voltar
+                </a>
+                <button type="submit" class="btn btn-success">
+                    {{ 'Atualizar' if livro else 'Cadastrar' }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

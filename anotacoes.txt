@@ -1,0 +1,4 @@
+https://github.com/jmbes/librarium.git
+
+git config --global user.name "Juliano Barbosa"
+git config --global user.email "jmbes_btu@hotmail.com"
